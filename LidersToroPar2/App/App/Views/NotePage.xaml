@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Views.NotePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+            >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Notes:"
+                        TextColor="Black">
+            </Label>
+            <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{Binding Notes,Mode=TwoWay}"
+                        Placeholder="Pon tu nota">
+            </Entry>
+            <Button
+                    BackgroundColor="Navy"
+                    Text="Añadir Nota"
+                    Command="{Binding AddCommand,Mode=TwoWay}"
+                    IsEnabled="{Binding IsEnabled}"
+                    TextColor="White">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
