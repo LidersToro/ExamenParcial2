@@ -12,6 +12,6 @@ namespace App.Models
 
         [Required]
         [Display(Name = "Note")]
-        public string nota { get; set; }
+        public string Contents { get; set; }
     }
 }

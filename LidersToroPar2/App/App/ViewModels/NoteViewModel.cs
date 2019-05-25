@@ -30,7 +30,7 @@ namespace App.ViewModels
         }
        
 
-    public ICommand LoginCommand
+    public ICommand AddCommand
     {
         get
         {
@@ -58,41 +58,11 @@ namespace App.ViewModels
             return;
         }
 
+            Note x = new Note();
 
-        TokenResponse token = await this.apiService.Post<Response>(
-          "https://notesplc.azurewebsites.net/",
+        Response token = await this.apiService.Post<Note>(
+          "https://notesplc.azurewebsites.net/","api/Notes",this.notes,x );
           
-          this.Notes);
-
-
-
-            if (token == null)
-            {
-                
-                await Application.Current.MainPage.DisplayAlert(
-                   "ERROR",
-                   "Todo la conexion no da, please try later.",
-                   "Accept");
-                return;
-    }
-
-            if (string.IsNullOrEmpty(token.AccessToken))
-            {
-                
-                await Application.Current.MainPage.DisplayAlert(
-                   "ERROR",
-                   token.ErrorDescription,
-                   "Accept");
-                
-
-                return;
-    }
-    MainViewModel mainViewModel = MainViewModel.GetInstance();
-    mainViewModel.Token = token.AccessToken;
-            mainViewModel.TokenType = token.TokenType;
-
-            Application.Current.MainPage = new NavigationPage(new NotePage());
-            
 
         }
         

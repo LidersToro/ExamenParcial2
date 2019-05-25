@@ -22,7 +22,6 @@
                     BackgroundColor="Navy"
                     Text="Añadir Nota"
                     Command="{Binding AddCommand,Mode=TwoWay}"
-                    IsEnabled="{Binding IsEnabled}"
                     TextColor="White">
             </Button>
         </StackLayout>
